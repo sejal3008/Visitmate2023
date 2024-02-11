@@ -3,25 +3,74 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <nav class="navbar navbar-light bg-light" style={{boxShadow:"0 0 40px 0 rgba(0,0,0,.45)"}}>
+      <nav
+        class="navbar navbar-light bg-light"
+        style={{ boxShadow: "0 0 40px 0 rgba(0,0,0,.45)" }}
+      >
         <div class="container-fluid">
           <a class="navbar-brand ms-5">
-               <Link to='/'> <h3>VisitMate</h3></Link>      
+            <Link to="/">
+              {" "}
+              <h3>VisitMate</h3>
+            </Link>
           </a>
-           <span class="float-right d-flex ">
-           <div class="dropdown m-1">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-   Resistration
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Student</a></li>
-    <li><a class="dropdown-item" href="#">Teacher</a></li>
-    <li><a class="dropdown-item" href="#">Industrial Owner</a></li>
-  </ul>
-</div>
-          <div class="rounded-circle bg-info me-5">
-            <h3>Vai</h3>
+          {/* <!-- Button trigger modal --> */}
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+           Resister
+          </button>
+
+          <div
+            class="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                    Modal title
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body ">
+                  <Link to="/StudentRegister">Student</Link>
+                  <Link to="/admin">Teacher</Link>
+                  <Link to="/IndustrialRegister"> Industrial Owner</Link>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Understood
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <span class="float-right d-flex ">
+            <div class="rounded-circle bg-info me-5">
+              <h3>Vai</h3>
+            </div>
           </span>
         </div>
       </nav>
