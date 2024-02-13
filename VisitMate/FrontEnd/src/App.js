@@ -19,7 +19,7 @@ function App() {
               {/* resistration routes */}
               <Route path="/StudentRegister" element={<StudentForm/>} />   
               <Route path="/IndustrialRegister" element={<IndustrialForm/>} />
-              <Route path="/admin" element={<AdminForm/>} />
+              <Route path="/adminResister" element={<AdminForm/>} />
 
              {/* dashbord routes */}
               <Route path="/student" element={<StudentDashboard />}/>

@@ -55,7 +55,7 @@ function Header() {
                 </div>
                 <div class="modal-body ">
                   <Link to="/StudentRegister">Student</Link>
-                  <Link to="/admin">Teacher</Link>
+                  <Link to="/adminResister">Teacher</Link>
                   <Link to="/IndustrialRegister"> Industrial Owner</Link>
                 </div>
                 <div class="modal-footer">
