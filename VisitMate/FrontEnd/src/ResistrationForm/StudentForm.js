@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function StudentForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    studentId: '',
     username: '',
     password: '',
     studentName: '',
@@ -26,19 +27,38 @@ function StudentForm() {
     e.preventDefault();
 
     try {
-      const loginResponse = await axios.post('http://localhost:3001/createlogin', {
+      const loginResponse = await axios.post('http://localhost:3001/login/create', {
         username: formData.username,
         password: formData.password,
         role: 'student'
       });
+        const data={
+          userid:loginResponse?.data?.data?.userid,
+          username: loginResponse?.data?.data?.username,
+          name: formData.studentName,
+          gender:formData.gender,
+          email: formData.email,
+          Phno: formData.phno,
+          address:formData.address,
+          department:formData.department,
+        }
+   console.log(data, "data");
       console.log(loginResponse, "loginResponse");
       if (loginResponse.data.message === 'Login created successfully') {
-        const studentResponse = await axios.post('http://localhost:3001/student', formData);
+        const studentResponse = await axios.post('http://localhost:3001/student/create', {
+          userid:loginResponse?.data?.data?.userid,
+          username: loginResponse?.data?.data?.username,
+          name: formData.studentName,
+          gender:formData.gender,
+          email: formData.email,
+          Phno: formData.phno,
+          address:formData.address,
+          department:formData.department
+        });
 
         console.log(studentResponse.data, "studentResponse.data");
 
         setFormData({
-          studentId: '',
           username: '',
           password: '',
           studentName: '',
@@ -48,8 +68,9 @@ function StudentForm() {
           address: '',
           department: ''
         });
-
+      
         alert('Student created successfully');
+        navigate("/");
       } else {
         alert('Error creating login. Please try again.');
       }
@@ -66,16 +87,6 @@ function StudentForm() {
         <div className="col-md-8 offset-md-2">
           <h2 className="text-center mb-4 text-info">Student Form</h2>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label className="text-secondary">Student ID:</label>
-              <input
-                type="text"
-                className="form-control"
-                name="studentId"
-                value={formData.studentId}
-                onChange={handleChange}
-              />
-            </div>
             <div className="form-group">
               <label className="text-secondary">Username:</label>
               <input

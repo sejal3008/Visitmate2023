@@ -33,7 +33,7 @@ const studentTable = seq.define('student', {
     name: {
         type: STRING,
         allowNull: false,
-        unique: true
+       
     },
     gender: {
         type: ENUM('male', 'female','other'),
@@ -57,7 +57,8 @@ const studentTable = seq.define('student', {
     },
     industryid: {
         type: INTEGER,
-        allowNull: false,
+        allowNull: true,
+
         references: {
             model: 'industry',
             key: 'industryid'

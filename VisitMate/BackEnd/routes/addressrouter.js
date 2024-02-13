@@ -5,8 +5,7 @@ const { Address } = require('../models/address');
 // Create address
 addressrouter.post('/create', async (req, res) => {
     try {
-        const industryid = req.params.industryid;
-        const { street, city, state, postal_code, country } = req.body;
+        const { street, city, state, postal_code, country, industryid } = req.body;
 
         const address = await Address.create({ industryid, street, city, state, postal_code, country });
         res.status(201).json({ message: 'Address created successfully', address });
@@ -14,7 +13,7 @@ addressrouter.post('/create', async (req, res) => {
         console.error('Error creating address:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
-});
+});  
 
 // Read all addresses for an industry
 addressrouter.get('/get', async (req, res) => {

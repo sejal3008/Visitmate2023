@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 function IndustrialForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -35,19 +36,6 @@ function IndustrialForm() {
         role: 'industrialowner'
       });
 
-
-      console.log(loginResponse.data, "loginResponse.data.data");
-      
-      const data={
-        userid: loginResponse?.data?.data?.userid,
-        username: loginResponse?.data?.data?.username,
-        company: formData.companyName,
-        status: formData.status,
-        CompanyInfo: formData.info, 
-      }
-     
-
-  console.log(data, "data");
       if (loginResponse.data.message === 'Login created successfully') {
         // Create industrial details
         const industryDetailsResponse = await axios.post('http://localhost:3001/industry/create', {
@@ -58,12 +46,12 @@ function IndustrialForm() {
           CompanyInfo: formData.info,
          
         });
-        console.log("industryDetailsResponse", industryDetailsResponse.data);
 
+        
        if  (industryDetailsResponse.data.message === 'Industry created successfully') {
   
           const addressResponse = await axios.post(`http://localhost:3001/address/create`, {
-            industryid:industryDetailsResponse.industry?.industryid,
+            industryid:industryDetailsResponse?.data?.industry?.industryid,
             street: formData.street,
             city: formData.city,
             state: formData.state,
@@ -88,6 +76,7 @@ function IndustrialForm() {
           });
 
           alert('Industrial user and address created successfully');
+          navigate('/');
         } else {
           alert('Error creating industrial details. Please try again.');
         }

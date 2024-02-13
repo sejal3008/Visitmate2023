@@ -62,7 +62,7 @@ industryrouter.post('/create', async (req, res) => {
 
         const industry = await industryTable.create({ userid, username, company, status, CompanyInfo });
         res.status(201).json({ message: 'Industry created successfully', industry });
-    } catch (error) {
+    } catch (error) {  
         console.error('Error creating industry:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
