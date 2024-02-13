@@ -1,6 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:3001/login/validate", {
+        username,
+        password,
+      });
+         console.log(response, "response");
+      // Assuming your API sends a success message and user data
+      if (response.data.message === "Login successful") {
+        // Redirect to the user's role-specific page
+        const userRole = response?.data?.data?.userRole;
+        navigate(`/${userRole}` );
+        console.log("response.data.dataRole", userRole);
+
+      }
+    } catch (error) {
+      // Handle login error
+      console.error("Login error:", error);
+    }
+  };
+
   return (
     <>
       <section className="vh-100 gradient-custom">
@@ -21,39 +50,43 @@ function Login() {
                     <p className="text-white-50 mb-4">
                       Please enter your login and password!
                     </p>
-                    <div className="form-outline form-white mb-2">
-                      <input
-                        type="email"
-                        id="typeEmailX"
-                        className="form-control form-control-lg"
-                      />
-                      <label className="form-label" htmlFor="typeEmailX">
-                        Email
-                      </label>
-                    </div>
-                    <div className="form-outline form-white mb-2">
-                      <input
-                        type="password"
-                        id="typePasswordX"
-                        className="form-control form-control-lg"
-                      />
-                      <label className="form-label" htmlFor="typePasswordX">
-                        Password
-                      </label>
-                    </div>
-                    <p className="small mb-2 pb-lg-1">
-                      <a className="text-white-50" href="#!">
-                        Forgot password?
-                      </a>
-                    </p>
-                    <button
-                      className="btn btn-outline-light btn-lg px-5"
-                      type="submit"
-                    >
-                      Login
-                    </button>
-
-                   
+                    <form onSubmit={handleLogin}>
+                      <div className="form-outline form-white mb-2">
+                        <input
+                          type="text"
+                          id="username"
+                          className="form-control form-control-lg"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                        />
+                        <label className="form-label" htmlFor="typeEmailX">
+                          Username
+                        </label>
+                      </div>
+                      <div className="form-outline form-white mb-2">
+                        <input
+                          type="password"
+                          id="typePasswordX"
+                          className="form-control form-control-lg"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <label className="form-label" htmlFor="typePasswordX">
+                          Password
+                        </label>
+                      </div>
+                      <p className="small mb-2 pb-lg-1">
+                        <Link className="text-white-50" to="#">
+                          Forgot password?
+                        </Link>
+                      </p>
+                      <button
+                        className="btn btn-outline-light btn-lg px-5"
+                        type="submit"
+                      >
+                        Login
+                      </button>
+                    </form>
                   </div>
                 </div>
               </div>

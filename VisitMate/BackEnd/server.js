@@ -8,6 +8,7 @@ const loginrouter = require('./routes/loginroute');
 const router = require('./routes/route'); 
 const industryrouter = require('./routes/industryrouter'); 
 const studentrouter = require('./routes/studentroute'); 
+const addressrouter = require('./routes/addressrouter');
 
 
 
@@ -30,6 +31,7 @@ server.use('/login',loginrouter);
 server.use('/admin',router);
 server.use('/industry',industryrouter);
 server.use('/student',studentrouter);
+server.use('/address', addressrouter);
 
 
 // Start the server and listen on port 3001
