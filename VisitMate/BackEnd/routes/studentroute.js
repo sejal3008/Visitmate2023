@@ -52,7 +52,7 @@ studentrouter.post('/create', async (req, res) => {
         const student = await studentTable.create({ userid, username, name, gender, email, Phno, address, department, industryid, status, industryinfo });
 
         // Validate if the user exists in the login table before creating the student record 
-        const user = await loginTable.findOne({ where: { userid, username } });
+        const user = await loginTable.findOne({ where: { username } });
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }

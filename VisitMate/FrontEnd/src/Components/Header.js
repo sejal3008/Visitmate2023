@@ -1,6 +1,13 @@
 import React from "react";
+import { useSelector } from 'react-redux';
+import { selectUserData } from '../Slice/userSlice';
 import { Link } from "react-router-dom";
+
 function Header() {
+
+ const userData = useSelector(selectUserData);
+
+
   return (
     <>
       <nav
@@ -48,7 +55,7 @@ function Header() {
                 </div>
                 <div class="modal-body ">
                   <Link to="/StudentRegister">Student</Link>
-                  <Link to="/admin">Teacher</Link>
+                  <Link to="/adminResister">Teacher</Link>
                   <Link to="/IndustrialRegister"> Industrial Owner</Link>
                 </div>
                 <div class="modal-footer">
@@ -69,8 +76,8 @@ function Header() {
 
           <span class="float-right d-flex ">
             <div class="rounded-circle bg-info me-5">
-              <h3>Vai</h3>
             </div>
+            <span> Hello {userData?.userData?.name}</span>
           </span>
         </div>
       </nav>

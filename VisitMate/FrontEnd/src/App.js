@@ -1,12 +1,13 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./Components/Header";
 import Login from "./Components/Login";
 import { Routes, Route} from "react-router-dom"
-import TeacherRegister from "./Components/TeacherRegister";
 import StudentForm from "./ResistrationForm/StudentForm";
 import IndustrialForm from "./ResistrationForm/IndustrialForm";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import StudentDashbosr from "./Dashboard/StudentDashbosr";
 import AdminForm from "./ResistrationForm/AdminForm";
+import StudentDashboard from "./Dashboard/StudentDashboard";
+import AdminDashboard from "./Dashboard/AdminDashboard";
+import IndustrialDashboard from "./Dashboard/IndustrialDashboard";
 
 function App() {
   return (
@@ -14,10 +15,17 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Login />} />
+
+              {/* resistration routes */}
               <Route path="/StudentRegister" element={<StudentForm/>} />   
-              <Route path="/admin" element={<AdminForm/>} />
-              <Route path="/student" element={<StudentDashbosr />} />
               <Route path="/IndustrialRegister" element={<IndustrialForm/>} />
+              <Route path="/adminResister" element={<AdminForm/>} />
+
+             {/* dashbord routes */}
+              <Route path="/student" element={<StudentDashboard />}/>
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/industrialowner" element={<IndustrialDashboard/>} />
+
             </Routes>
           </>
   );

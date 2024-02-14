@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { useDispatch } from 'react-redux';
+import { setUserData } from '../Slice/userSlice';
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -14,18 +16,18 @@ function Login() {
       const response = await axios.post("http://localhost:3001/login/validate", {
         username,
         password,
-      });
-         console.log(response, "response");
-      // Assuming your API sends a success message and user data
+      });           //response of this axios.post i want to use in that perticular dashboard page using redux toolkit please help me for that 
+         console.log(response, "loginresponse");
+        
+      
       if (response.data.message === "Login successful") {
-        // Redirect to the user's role-specific page
+       
         const userRole = response?.data?.data?.userRole;
+        dispatch(setUserData(response?.data?.data));
         navigate(`/${userRole}` );
-        console.log("response.data.dataRole", userRole);
 
       }
     } catch (error) {
-      // Handle login error
       console.error("Login error:", error);
     }
   };

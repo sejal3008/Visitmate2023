@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function AdminForm() {
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     password: '', 
@@ -31,18 +33,8 @@ function AdminForm() {
       console.log(loginResponse, "adminResponse.data");
        console.log(loginResponse?.data?.data?.userid,"loginResponse?.data?.data?.userid");
        console.log(formData.username, "formData.username")
-     const data={
-      userid:loginResponse?.data?.data?.userid,
-      username: loginResponse?.data?.data?.username,
-      name: formData.name,
-      emailID: formData.emailID,
-      phno: formData.phno,
-      role: 'admin'
-     }
-       
-    console.log(data , "data");
+     
       if (loginResponse.data.message === 'Login created successfully') {
-        // If admin creation is successful, create additional admin details
         const adminDetailsResponse = await axios.post('http://localhost:3001/admin/craete', {
           userid:loginResponse?.data?.data?.userid,
           username: loginResponse?.data?.data?.username,
@@ -63,6 +55,7 @@ function AdminForm() {
         });
 
         alert('Admin created successfully');
+        navigate("/");
       } else {
         alert('Error creating admin. Please try again.');
       }
