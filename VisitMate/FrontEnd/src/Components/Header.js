@@ -2,6 +2,10 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import { selectUserData } from '../Slice/userSlice';
 import { Link } from "react-router-dom";
+import { FaUser, FaUserGraduate, FaIndustry } from 'react-icons/fa'; // Import icons
+import { FaUserPlus } from 'react-icons/fa'; // Import the register icon
+
+
 
 function Header() {
 
@@ -28,7 +32,7 @@ function Header() {
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
           >
-           Resister
+           <FaUserPlus /> Resister
           </button>
 
           <div
@@ -44,7 +48,7 @@ function Header() {
               <div class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                    Modal title
+                    Register Here 
                   </h1>
                   <button
                     type="button"
@@ -53,11 +57,19 @@ function Header() {
                     aria-label="Close"
                   ></button>
                 </div>
-                <div class="modal-body ">
-                  <Link to="/StudentRegister">Student</Link>
-                  <Link to="/adminResister">Teacher</Link>
-                  <Link to="/IndustrialRegister"> Industrial Owner</Link>
-                </div>
+                <div className="modal-body">
+              <div className="d-flex flex-column">
+                <Link to="/StudentRegister" className="mb-2 text-decoration-none text-dark">
+                  <FaUserGraduate className="me-2" /> Student
+                </Link>
+                <Link to="/adminResister" className="mb-2 text-decoration-none text-dark">
+                  <FaUser className="me-2" /> Teacher
+                </Link>
+                <Link to="/IndustrialRegister" className="mb-2 text-decoration-none text-dark">
+                  <FaIndustry className="me-2" /> Industrial Owner
+                </Link>
+              </div>
+            </div>
                 <div class="modal-footer">
                   <button
                     type="button"
@@ -66,9 +78,7 @@ function Header() {
                   >
                     Close
                   </button>
-                  <button type="button" class="btn btn-primary">
-                    Understood
-                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -86,3 +96,4 @@ function Header() {
 }
 
 export default Header;
+
