@@ -11,7 +11,7 @@ git remote add origin https://github.com/sejal3008/Visitmate2023.git
 then push your code to your repository 
 git push origin main(name of your origin)
 after that create pull request to merge the code to original repository main authentication person merge the code.
-----------------------
+
 if someone makes changes in original repository and you have to pull it then 
 add original repository in your system :
 git remote add upstream https://github.com/992344/Visitmate2023.git
@@ -21,4 +21,4 @@ checkout to the master branch and merge :
 git checkout master
 git merge upstream/master
 resolve all merge conflicts
-----------------------------------------------
+
