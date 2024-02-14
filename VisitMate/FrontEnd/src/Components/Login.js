@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../Slice/userSlice';
+import loginbg from "../public/Images/loginbg.webp"; // Import the background image
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -37,8 +38,13 @@ function Login() {
   return (
 
     <>
-    
-      <section className="vh-100 gradient-custom" >
+
+      <section className="vh-100 gradient-custom" 
+       style={{
+        backgroundImage: `url(${loginbg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'right'
+      }}>
         <div className="container py-4 h-80">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
