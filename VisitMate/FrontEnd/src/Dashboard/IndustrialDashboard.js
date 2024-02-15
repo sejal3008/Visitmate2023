@@ -1,58 +1,67 @@
-// IndustrialDashboard.js
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectUserData } from '../Slice/userSlice';
+import "../Style/industry.css";
 
 const IndustrialDashboard = () => {
+  const userData = useSelector(selectUserData);
+
   return (
     <div id="wrapper">
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Industrial Dashboard</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="#">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">About Us</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Contact Us</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">New Updates</a>
-              </li>
-            </ul>
+          <span className="navbar-brand">Industry Dashboard</span>
+          <div className="navbar-nav ms-auto">
+            <a className="nav-link" href="#">Logout</a>
           </div>
         </div>
       </nav>
 
-      {/* Sidebar */}
-      <nav id="sidebar" className="bg-info">
-        <div className="sidebar-header">
-          <h3>Options</h3>
+      {/* Main Content */}
+      <div className="container-fluid">
+        <div className="row justify-content-center">
+          <div className="col-md-8 py-3">
+            <h2 className="text-center text-white mb-4">Welcome to the Industrial Dashboard!</h2>
+            {/* Profile Table */}
+            <div className="table-responsive">
+              <table className="table table-dark table-bordered table-striped text-white">
+                <tbody>
+                  <tr>
+                    <td className="text-white"><b>User Id</b></td>
+                    <td>{userData?.userId}</td>
+                  </tr>
+                  <tr>
+                    <td className="text-white"><b>UserName</b></td>
+                    <td>{userData?.username}</td>
+                  </tr>
+                  <tr>
+                    <td className="text-white"><b>CompanyName</b></td>
+                    <td>{userData?.companyName}</td>
+                  </tr>
+                  <tr>
+                    <td className="text-white"><b>CompanyInfo</b></td>
+                    <td>{userData?.companyInfo}</td>
+                  </tr>
+                  {/* Add more rows as needed */}
+                </tbody>
+              </table>
+            </div>
+            {/* End of Profile Table */}
+            
+            {/* Button */}
+            <hr />
+            <div className="text-center text-white">
+              <button
+                type="button"
+                className="btn btn-white"
+              >
+                <b>Update Visiting Information</b>
+              </button>
+            </div>
+            {/* End of Button */}
+          </div>
         </div>
-        <ul className="list-unstyled components">
-          <li className="active">
-            <a href="#">Upcoming Visit</a>
-          </li>
-          <li>
-            <a href="#">Past Visit</a>
-          </li>
-          <li>
-            <a href="#">Assigned Person for Visit</a>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Dashboard Content */}
-      <div id="content" className="container-fluid">
-        <h1>Welcome to the Industrial Dashboard!</h1>
-        <p>Here you can manage upcoming visits, view past visits, and assign persons for visits.</p>
       </div>
     </div>
   );
