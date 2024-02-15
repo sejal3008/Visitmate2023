@@ -8,6 +8,8 @@ import AdminForm from "./ResistrationForm/AdminForm";
 import StudentDashboard from "./Dashboard/StudentDashboard";
 import AdminDashboard from "./Dashboard/AdminDashboard";
 import IndustrialDashboard from "./Dashboard/IndustrialDashboard";
+import Profile from "./Dashboard/Profile";
+import IndustryPage from "./Dashboard/Industrypage";
 
 function App() {
   return (
@@ -25,7 +27,10 @@ function App() {
               <Route path="/student" element={<StudentDashboard />}/>
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/industrialowner" element={<IndustrialDashboard/>} />
-
+              {/* Profile routes */}
+              <Route path="/profile" element={<Profile/>} />
+              <Route path="/industrydashboard" element={<IndustrialDashboard/>} />
+              <Route path="/Industrypage" element={<IndustryPage/>} />
             </Routes>
           </>
   );
