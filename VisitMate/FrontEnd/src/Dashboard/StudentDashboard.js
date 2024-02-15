@@ -18,7 +18,7 @@ const StudentDashboard = () => {
             <span className="nav-item nav-link">Address: {userData?.userData?.address}</span>
             <span className="nav-item nav-link">Gender: {userData?.userData?.gender}</span>
             <span className="nav-item nav-link">Status: {userData?.userData?.status}</span>
-            {/* Add more information as needed */}
+           
           </div>
         </div>
       </nav>
