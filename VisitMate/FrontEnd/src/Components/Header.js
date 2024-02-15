@@ -15,25 +15,28 @@ function Header() {
   return (
     <>
       <nav
-        class="navbar navbar-light bg-light"
+        class="navbar navbar-dark bg-black"
         style={{ boxShadow: "0 0 40px 0 rgba(0,0,0,.45)" }}
       >
         <div class="container-fluid">
           <a class="navbar-brand ms-5">
             <Link to="/">
               {" "}
-              <h3>VisitMate</h3>
+              <h3 style={{ color: 'white' }}>VisitMate</h3>
             </Link>
           </a>
           {/* <!-- Button trigger modal --> */}
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-          >
-           <FaUserPlus /> Resister
-          </button>
+          <span className="ms-auto me-5">
+            <button
+              type="button"
+              className="btn btn-light"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              style={{ backgroundColor: 'white', color: 'black' }}
+            >
+              <FaUserPlus /> Register
+            </button>
+          </span>
 
           <div
             class="modal fade"
@@ -87,7 +90,7 @@ function Header() {
           <span class="float-right d-flex ">
             <div class="rounded-circle bg-info me-5">
             </div>
-            <span> Hello {userData?.userData?.name}</span>
+            <span className="float-end me-5 "style={{ color: 'white' }}>Hello {userData?.userData?.name}</span>
           </span>
         </div>
       </nav>
