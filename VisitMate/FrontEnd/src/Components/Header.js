@@ -28,7 +28,7 @@ function Header() {
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
           >
-           Resister
+          New Register
           </button>
 
           <div
