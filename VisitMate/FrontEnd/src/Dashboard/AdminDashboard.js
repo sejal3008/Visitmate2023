@@ -1,6 +1,8 @@
 // AdminDashboard.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AdminDashbordbg from "../public/Images/loginbg.webp"; // Import the background image
+
 
 const AdminDashboard = () => {
   return (
@@ -16,7 +18,11 @@ const AdminDashboard = () => {
       </nav>
 
     {/* Sidebar */}
-<div class="container-fluid">
+<div class="container-fluid" style={{
+            backgroundImage: `url(${AdminDashbordbg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'right'
+          }}>
     <div class="row flex-nowrap">
         <div class="col-auto col-md-2 px-sm-2 px-0 bg-dark">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
