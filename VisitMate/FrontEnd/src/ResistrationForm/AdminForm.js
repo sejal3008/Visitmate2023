@@ -35,7 +35,7 @@ function AdminForm() {
        console.log(formData.username, "formData.username")
      
       if (loginResponse.data.message === 'Login created successfully') {
-        const adminDetailsResponse = await axios.post('http://localhost:3001/admin/craete', {
+        const adminDetailsResponse = await axios.post('http://localhost:3001/admin/create', {
           userid:loginResponse?.data?.data?.userid,
           username: loginResponse?.data?.data?.username,
           name: formData.name,

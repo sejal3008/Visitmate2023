@@ -10,7 +10,7 @@ const { adminTable } = require('../models/Table');
 //-------------------- REST API FOR ADMIN TABLE --------------------
 
 // Create admin
-router.post('/craete', async (req, res) => {
+router.post('/create', async (req, res) => {
     try {
         const { userid, username, name, emailID, Phno } = req.body;
         const admin = await adminTable.create({ userid, username, name, emailID, Phno });

@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from 'react-redux';
-import { selectUserData } from '../Slice/userSlice';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUserData , setUserData} from '../Slice/userSlice';
 import { Link } from "react-router-dom";
 import { FaUser, FaUserGraduate, FaIndustry } from 'react-icons/fa'; // Import icons
 import { FaUserPlus } from 'react-icons/fa'; // Import the register icon
@@ -8,10 +8,20 @@ import { FaUserPlus } from 'react-icons/fa'; // Import the register icon
 
 
 function Header() {
-
+   const dispatch=useDispatch();
  const userData = useSelector(selectUserData);
+ useEffect(() => {
+  const storedUserData = localStorage.getItem('userData');
+  if (storedUserData) {
+    // Parse the JSON string and dispatch it to the Redux store
+    dispatch(setUserData(JSON.parse(storedUserData)));
+  }
+}, [dispatch]);
 
-
+// Use useEffect to update localStorage when userData changes
+useEffect(() => {
+  localStorage.setItem('userData', JSON.stringify(userData));
+}, [userData]);
   return (
     <>
       <nav
@@ -21,7 +31,6 @@ function Header() {
         <div class="container-fluid">
           <a class="navbar-brand ms-5">
             <Link to="/">
-              {" "}
               <h3 style={{ color: 'white' }}>VisitMate</h3>
             </Link>
           </a>

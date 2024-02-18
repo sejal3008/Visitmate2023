@@ -1,16 +1,18 @@
-// AdminDashboard.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdminDashbordbg from "../public/Images/loginbg.webp"; // Import the background image
 
 
 const AdminDashboard = () => {
+
+  
   return (
-   <div id="wrapper">
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div id="wrapper">
+      
+ {/* Navbar */}
+ <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <span className="navbar-brand">Admin Dashboard</span>
+        <span className="navbar-brand ">Admin Dashboard</span>
           <div className="navbar-nav ms-auto">
             <a className="nav-link" href="#">Logout</a>
           </div>
@@ -24,7 +26,7 @@ const AdminDashboard = () => {
             backgroundPosition: 'right'
           }}>
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-2 px-sm-2 px-0 bg-dark">
+        <div class="col-auto col-md-2 px-sm-2 px-0 bg-black">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-5 d-none d-sm-inline">Menu</span>
@@ -39,27 +41,29 @@ const AdminDashboard = () => {
                     </li>
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-building"></i> <span class="ms-1 d-none d-sm-inline">Industry Data</span>
-                        </a>
+
+                        <Link to="/Industrydata" className="nav-link"><i class="fs-4 bi-building"></i>
+                        Industry Data</Link> </a>   
+                        
                     </li>
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Student Data</span>
+                        <Link to="/Studentdata" className="nav-link"><i class="fs-4 bi-people"></i>
+                        Student Data</Link>
                         </a>
                     </li>
                 </ul>
                 <hr/>
             </div>
         </div>
-        <div class="col py-3">
-            Welcome to the AdminDashboard !
+        <div class="col py-3 text-white">
+          <h2 style={{ color: 'white', fontFamily: 'Elephant' }}>Welcome to the Admin Dashboard !</h2> 
         </div>
     </div>
 </div>
-
- 
-      
-    </div>
+</div>
+    
+    
   );
 }
 
