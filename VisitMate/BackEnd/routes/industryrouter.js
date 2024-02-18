@@ -55,10 +55,10 @@ industryrouter.post('/create', async (req, res) => {
         const { userid, username, company, status, CompanyInfo } = req.body;
 
         // Validate if the user exists in the login table before creating the industry record 
-        const user = await loginTable.findOne({ where: {username } });
-        if (!user) {
-            return res.status(404).json({ error: 'User not found' });
-        }
+            const user = await loginTable.findOne({ where: { userid, username } });
+            if (!user) {
+                return res.status(404).json({ error: 'User not found' });
+            }
 
         const industry = await industryTable.create({ userid, username, company, status, CompanyInfo });
         res.status(201).json({ message: 'Industry created successfully', industry });

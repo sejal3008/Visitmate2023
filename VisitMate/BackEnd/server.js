@@ -33,6 +33,7 @@ server.use('/industry',industryrouter);
 server.use('/student',studentrouter);
 server.use('/address', addressrouter);
 
+
 // Start the server and listen on port 3001
 server.listen(3001, (error) => {
     if (error) {

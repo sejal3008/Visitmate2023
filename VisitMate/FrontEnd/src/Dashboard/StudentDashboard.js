@@ -1,41 +1,81 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectUserData } from "../Slice/userSlice";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectUserData } from '../Slice/userSlice';
+import StudentDashbordbg from "../public/Images/studentdashboard.webp"; // Import the background image
 
 const StudentDashboard = () => {
   const userData = useSelector(selectUserData);
   return (
     <div id="wrapper">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      {/* Navbar */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <span className="navbar-brand mb-0 h1">Dashboard</span>
+          <span className="navbar-brand">Student Dashboard</span>
           <div className="navbar-nav ms-auto">
-            <span className="nav-item nav-link">
-              Welcome, {userData?.userData?.name}
-            </span>
-            <span className="nav-item nav-link">
-              Department: {userData?.userData?.department}
-            </span>
-            <span className="nav-item nav-link">
-              Email: {userData?.userData?.email}
-            </span>
-            <span className="nav-item nav-link">
-              Phone: {userData?.userData?.Phno}
-            </span>
-            <span className="nav-item nav-link">
-              Address: {userData?.userData?.address}
-            </span>
-            <span className="nav-item nav-link">
-              Gender: {userData?.userData?.gender}
-            </span>
-            <span className="nav-item nav-link">
-              Status: {userData?.userData?.status}
-            </span>
-            {/* Add more information as needed */}
+          
+                    {/* Link to the Industry page */}
+                    <Link to="/Industrypage" className="nav-link"><i class="fs-17 bi-building"></i>
+                      Industry Visit
+                    </Link>
           </div>
         </div>
       </nav>
-    </div>
+      {/* Sidebar */}
+      
+          
+          <div class="col py-3" style={{
+            backgroundImage: `url(${StudentDashbordbg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'right'
+          }}>
+
+            {/* Main Content Table of student information*/}
+            <div className="container-fluid">
+              <div className="row justify-content-center">
+                <div className="col-md-8 py-3">
+                  <h2 className="text-center text-black mb-4">Welcome {userData?.userData?.name} to the Student Dashboard!</h2>
+                  {/* Profile Table */}
+                  <div className="table-responsive">
+                    <table className="table table-bordered table-striped ">
+                      <tbody>
+                        <tr>
+                          <td className="text-black"><b>Youer Id</b></td>
+                          <td>{userData?.userData?.studentid}</td>
+                        </tr>
+                        <tr>
+                          <td className="text-black"><b>Student Name</b></td>
+                          <td>{userData?.userData?.name}</td>
+                        </tr>
+                        <tr>
+                          <td className="text-black"><b>Gender</b></td>
+                          <td>{userData?.userData?.gender}</td>
+                        </tr>
+                        <tr>
+                          <td className="text-black"><b>Email</b></td>
+                          <td>{userData?.userData?.email}</td>
+                        </tr>
+                        <tr>
+                          <td className="text-black"><b>Phone</b></td>
+                          <td>{userData?.userData?.Phno}</td>
+                        </tr>
+                        <tr>
+                          <td className="text-black"><b>Address</b></td>
+                          <td>{userData?.userData?.address}</td>
+                        </tr>
+                        <tr>
+                          <td className="text-black"><b>Department</b></td>
+                          <td>{userData?.userData?.department}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
   );
 };
 
