@@ -37,13 +37,13 @@ const StudentDashboard = () => {
             <h2 className=" text-white "style={{ color: 'white', fontFamily: 'Algerian' }}>Welcome {userData?.name} to the Student Dashboard!</h2>
             <div className="card shadow-sm p-4" style={{ borderRadius: '15px', backgroundColor: 'rgba(255, 255, 255, 0.8)'}}>
               <div className="card-body">
-                <p><strong>Student ID:</strong> {userData?.userData?.studentid}</p>
-                <p><strong>Name:</strong>{userData?.userData?.name}</p>
-                <p><strong>Gender:</strong> {userData?.userData?.gender}</p>
-                <p><strong>Email:</strong> {userData?.userData?.email}</p>
-                <p><strong>Phone:</strong> {userData?.userData?.Phno}</p>
-                <p><strong>Address:</strong> {userData?.userData?.address}</p>
-                <p><strong>Department:</strong> {userData?.userData?.department}</p>
+                <p><strong >Student ID:  </strong>{userData?.userData?.studentid}</p>
+                <p><strong>Name:  </strong>{userData?.userData?.name}</p>
+                <p><strong>Gender:  </strong> {userData?.userData?.gender}</p>
+                <p><strong>Email:  </strong> {userData?.userData?.email}</p>
+                <p><strong>Phone:  </strong> {userData?.userData?.Phno}</p>
+                <p><strong>Address:  </strong> {userData?.userData?.address}</p>
+                <p><strong>Department: </strong> {userData?.userData?.department}</p>
               </div>
             </div>
           </div>

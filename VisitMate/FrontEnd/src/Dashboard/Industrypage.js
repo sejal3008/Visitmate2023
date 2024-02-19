@@ -31,40 +31,40 @@ const Industrypage = () => {
         <div className="row justify-content-center">
           <div className="col-md-8 py-3">
             <h2 className="text-center text-white mb-4">
-              <span className="nav-item nav-link"style={{ color: 'white', fontFamily: 'Algerian' }}>{userData?.userData?.name} Your Industry To Visit</span>
+              <span className="nav-item nav-link" style={{ color: 'white', fontFamily: 'Algerian' }}>{userData?.userData?.name} Your Industry To Visit</span>
             </h2>
-            <div className="card industry-card">
-              <div className="card-body">
-                {industryData && (
-                  <>
-                    <div className="row">
-                      <div className="col-md-6">
-                        <b>Industry ID:</b>
-                      </div>
-                      <div className="col-md-6">
-                        <p>{industryData.industryid}</p>
-                      </div>
+            {industryData ? (
+              <div className="card industry-card">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <b>Industry ID:</b>
                     </div>
-                    <div className="row">
-                      <div className="col-md-6">
-                        <b>Industry Name:</b>
-                      </div>
-                      <div className="col-md-6">
-                        <p>{industryData.company}</p>
-                      </div>
+                    <div className="col-md-6">
+                      <p>{industryData.industryid}</p>
                     </div>
-                    <div className="row">
-                      <div className="col-md-6">
-                        <b>Industry Visit Details:</b>
-                      </div>
-                      <div className="col-md-6">
-                        <p>{industryData.CompanyInfo}</p>
-                      </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <b>Industry Name:</b>
                     </div>
-                  </>
-                )}
+                    <div className="col-md-6">
+                      <p>{industryData.company}</p>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <b>Industry Visit Details:</b>
+                    </div>
+                    <div className="col-md-6">
+                      <p>{industryData.CompanyInfo}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="text-center text-white ">Industry Is Not Assigned Yet!</div>
+            )}
           </div>
         </div>
       </div>
