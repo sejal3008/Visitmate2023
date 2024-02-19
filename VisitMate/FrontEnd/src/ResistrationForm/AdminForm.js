@@ -69,10 +69,10 @@ function AdminForm() {
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3">
-          <h2 className="text-center text-primary">Admin Form</h2>
+          <h2 className="text-center text-white ">Admin Form</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label className="text-secondary">Username:</label>
+              <label className=" text-white">Username:</label>
               <input
                 type="text"
                 className="form-control"
@@ -82,7 +82,7 @@ function AdminForm() {
               />
             </div>
             <div className="form-group">
-              <label className="text-secondary">Password:</label>
+              <label className=" text-white">Password:</label>
               <input
                 type="password"
                 className="form-control"
@@ -92,7 +92,7 @@ function AdminForm() {
               />
             </div>
             <div className="form-group">
-              <label className="text-secondary">Name:</label>
+              <label className="text-white">Name:</label>
               <input
                 type="text"
                 className="form-control"
@@ -102,7 +102,7 @@ function AdminForm() {
               />
             </div>
             <div className="form-group">
-              <label className="text-secondary">Email ID:</label>
+              <label className="text-white">Email ID:</label>
               <input
                 type="email"
                 className="form-control"
@@ -112,7 +112,7 @@ function AdminForm() {
               />
             </div>
             <div className="form-group">
-              <label className="text-secondary">Phone Number:</label>
+              <label className="text-white">Phone Number:</label>
               <input
                 type="tel"
                 className="form-control"
@@ -121,6 +121,7 @@ function AdminForm() {
                 onChange={handleChange}
               />
             </div>
+       
             <div className="text-center">
               <button type="submit" className="btn btn-primary">
                 Submit
