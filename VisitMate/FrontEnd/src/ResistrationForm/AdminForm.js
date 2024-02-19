@@ -9,7 +9,7 @@ function AdminForm() {
     password: '', 
     name: '',
     emailID: '',
-    phno: ''
+    Phno: ''
   });
 
   const handleChange = (e) => {
@@ -40,7 +40,7 @@ function AdminForm() {
           username: loginResponse?.data?.data?.username,
           name: formData.name,
           emailID: formData.emailID,
-          phno: formData.phno,
+          Phno: formData.Phno,
           role: 'admin',
         });
 
@@ -51,7 +51,7 @@ function AdminForm() {
           password: '',
           name: '',
           emailID: '',
-          phno: ''
+          Phno: ''
         });
 
         alert('Admin created successfully');
@@ -116,8 +116,8 @@ function AdminForm() {
               <input
                 type="tel"
                 className="form-control"
-                name="phno"
-                value={formData.phno}
+                name="Phno"
+                value={formData.Phno}
                 onChange={handleChange}
               />
             </div>

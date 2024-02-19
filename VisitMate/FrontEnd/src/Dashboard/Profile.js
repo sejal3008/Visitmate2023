@@ -6,7 +6,7 @@ import profilebg from "../public/Images/loginbg.webp"; // Import the background 
 const Profiledata = () => {
   // Use useSelector to access userData from Redux store
   const userData = useSelector(selectUserData);
-
+   console.log(userData , "userData");
   return (
     <div className="background" style={{
       backgroundImage: `url(${profilebg})`,
