@@ -13,9 +13,7 @@ const AdminDashboard = () => {
  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
         <span className="navbar-brand ">Admin Dashboard</span>
-          <div className="navbar-nav ms-auto">
-            <a className="nav-link" href="#">Logout</a>
-          </div>
+          
         </div>
       </nav>
 

@@ -1,5 +1,6 @@
 const { INTEGER, STRING, ENUM } = require('sequelize');
 const {seq} = require('../config/database');
+
 const loginTable = seq.define("login",{
     userid:{
         type:INTEGER,

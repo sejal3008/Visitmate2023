@@ -55,7 +55,7 @@ const IndustrialDashboard = () => {
         <div className="container-fluid">
           <span className="navbar-brand">Industry Dashboard</span>
           <div className="navbar-nav ms-auto">
-            <a className="nav-link" href="#">Logout</a>
+            <a className="nav-link" href="#"> {userData?.userData?.username}</a>
           </div>
         </div>
       </nav>
@@ -91,7 +91,7 @@ const IndustrialDashboard = () => {
                     <button type="button" className="btn btn-secondary" onClick={handleCancelClick}>Cancel</button>
                   </div>
                 ) : (
-                  <button type="button" className="btn btn-white" onClick={handleEditClick}><b>Edit Information</b></button>
+                  <button type="button" className="btn btn-white" onClick={handleEditClick}><b>Update your Information</b></button>
                 )}
               </div>
             </div>

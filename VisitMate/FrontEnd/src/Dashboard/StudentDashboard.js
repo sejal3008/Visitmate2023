@@ -14,12 +14,17 @@ const StudentDashboard = () => {
         <div className="container-fluid">
           <span className="navbar-brand">Student Dashboard</span>
           <div className="navbar-nav ms-auto">
+            <a className="nav-link" href="#"> {userData?.userData?.username}</a>
+          </div>
+          <div className="navbar-nav ms-auto">
           
                     {/* Link to the Industry page */}
                     <Link to="/Industrypage" className="nav-link"><i class="fs-17 bi-building"></i>
                       Industry Visit
                     </Link>
+                    
           </div>
+
         </div>
       </nav>
       {/* Main Content */}
