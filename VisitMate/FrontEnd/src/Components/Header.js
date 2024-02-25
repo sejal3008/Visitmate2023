@@ -105,7 +105,7 @@ function Header() {
                       to="/adminResister"
                       className="mb-2 text-decoration-none text-dark"
                     >
-                      <FaUser className="me-2" /> Teacher
+                      <FaUser className="me-2" /> Admin
                     </Link>
                     <Link
                       to="/IndustrialRegister"
